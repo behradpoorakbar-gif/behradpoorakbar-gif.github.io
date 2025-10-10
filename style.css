@@ -3,14 +3,17 @@ h1 {
   font-size: 1000px;
   font-wieght: bolder;
 
+/* .name {
+  font style: awesome-regular;
+} */
+    
+  
 }
 body {
 background-color: skyblue;
 }
 
-/*
-.question{
+/* .question{
   color: light grey;
   font-wieght: bolder;
-}
-*/
+} */
