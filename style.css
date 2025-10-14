@@ -22,5 +22,9 @@ h2 {
     color: purple;
   font-wieght: bolder;
   border-size: 16px;
-  border-style: dashed;
+  border-style: dashed
+}
+
+h2 {
+    border-color: aquamarine;
 }
