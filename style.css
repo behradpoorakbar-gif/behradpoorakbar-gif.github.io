@@ -21,8 +21,8 @@ background-color: skyblue;
 h2 {
     color: purple;
   font-wieght: bolder;
-  border-size: 16px;
   border-style: dashed;
+  border-size: 16px;
 }
 
 h2 {
