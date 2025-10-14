@@ -5,11 +5,10 @@ h1 {
 }
 
 .name {
-  font style: awesome-regular;
+  font-style: awesome-regular;
 }
     
-  
-}
+
 body {
 background-color: skyblue;
 }
