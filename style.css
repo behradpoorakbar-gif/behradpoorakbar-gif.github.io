@@ -22,4 +22,6 @@ background-color: skyblue;
 h2 {
     color: light grey;
   font-wieght: bolder;
+  border-size: 8px;
+  border-style: dashed;
 }
