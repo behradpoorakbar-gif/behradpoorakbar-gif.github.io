@@ -34,7 +34,7 @@ text-decoration: underline;
 #content {
 margin-left: 250px;
 padding: 40px;
-background-color: #fdf9f4; /*a hashtag is needed to signify that the following context of letters and numbers as a type of hex color. If there is no #, the code cannot be found in the color gallery and applied*/
+background-color: #fdf9f4; /*a hashtag is needed to signify that the following context of letters and numbers is a type of hex color. If there is no #, the code cannot be found in the color gallery and applied*/
 }
 .section{ /*there is no class labelled as "section", therefore the css is not being applied to the webpage in the first place.*/
 padding: 50px; /*the "px" was missing behind the numerical value. This means padding cannot be applied since the number cannot be identified with the declaration block.*/
