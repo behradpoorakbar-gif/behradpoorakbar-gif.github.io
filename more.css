@@ -34,7 +34,7 @@ text-decoration: underline;
 #content {
 margin-left: 250px;
 padding: 40px;
-background-color: #fdf9f4; /*a hashtag is needed to signify that the following context of letters and numbers are a type of hex color. If there is no #, the code connot be found in the color gallery and applied*/
+background-color: #fdf9f4; /*a hashtag is needed to signify that the following context of letters and numbers are a type of hex color. If there is no #, the code cannot be found in the color gallery and applied*/
 }
 .section{ /*there is no class labelled as "section", therefore the css is not being implied to the webpage in the first place.*/
 padding: 50px; /*the "px" was missing behind the numerical value. This means padding cannot be applied since the number cannot be identified with the declaration block.*/
@@ -44,7 +44,7 @@ border-radius: 10px;
 .section.light { /*the selector name in the html file was identified as "section light", not "light". This means the css could not find the text on the html and could not apply the changes correctly. There also connot be spaces in classes so you have to use a period.*/
 background-color: #fff8e6;
 }
-.section.dark { /*"dark" was spelled wrong and was not labelled as the entire identified class in the html file. The selector was missing the the full class identification of "section dark", not "dork". This means that it was not being identefied and applied to the specified text in the html.*/
+.section.dark { /*"dark" was spelled wrong and was not labelled as the entire identified class in the html file. The selector was missing the full class identification of "section dark", not "dork". This means that it was not being identefied and applied to the specified text in the html.*/
 background-color: #e7cba9;
 color: #3b2b0a;
 }
