@@ -55,7 +55,7 @@ padding: 30px;
 margin-top: 25px;
 border-radius: 8px;
 }
-.wool-detail { /* No "{" seperating the decloration blocks from the div group. Since there was no start to the div group selector of ".wool-detail", none of the decloration blocks were coming into play*/
+.wool-detail { /* No "{" separating the declaration blocks from the div group. Since there was no start to the div group selector of ".wool-detail", none of the declaration blocks were coming into play*/
 position: absolute;
 bottom: 10px;
 right: 10px;
