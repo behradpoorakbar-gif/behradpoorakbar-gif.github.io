@@ -49,7 +49,7 @@ background-color: #e7cba9;
 color: #3b2b0a;
 }
 .wool-box {
-position: relative; /* No ":" was used to clearify the selector of "position" for the decloration block of "relative" */
+position: relative; /* No ":" was used to clarify the selector of "position" for the declaration block of "relative" */
 background-color: #f3e0b6;
 padding: 30px;
 margin-top: 25px;
