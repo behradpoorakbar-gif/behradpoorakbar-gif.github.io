@@ -17,13 +17,12 @@
 <li><a href="#fun">Fun Facts</a></li> <!--missing the final "li" tag to finish the unorganized list. Without the li, the text would not be bulleted like the ones above-->
 </ul>
 </div>
-<div id="content">
+<div id="content"> <!--The ending div for the content block was placed too early. The entire content portion including "section dark" and "section light" were not included in the div so the chnages were not being applied to all the lines needed-->
 <div id="home" class="section light">
 <h1>Welcome to Alpaca Adventures</h1>
 <p>Alpacas live in the mountains of Peru and are known for their soft wool and gentle
 personalities. They travel in groups called herds.</p>
 </div> <!--added two extra divs to end the specified content above. without the div, the code would be incomplete since it would be unclear which section was given the id "content" and "home".-->
-</div>
 <div id="wool" class="section dark"> <!--No quotations around the given class "section dark" and "wool". All class selectors must be quoted so that the name can be identified in the css file. Since it was not quoted, the selector could not be found in the html file and changes from the css could not be made.-->
 <h2>Wonderful Wool</h2> <!--added a "/" to the h2 ending. This allows the text inside the h2 code block to be marked as a heading and end at the "</h2>". Since there was no "/", the heading did not end at the second <h2> and took up the whole rest of the code.-->
 Alpaca wool is light, warm, and water-resistant. It's sheared every year to make cozy
@@ -47,6 +46,7 @@ leader that helps keep order in the group.</p>
 <li>They rarely spit at people — only other alpacas!</li>
 <li>Each alpaca has a unique “hum” sound.</li> 
 </ul>
+</div>
 </div>
 <div id="footer">
 <p>© 2025 Alpaca Adventures</p>
