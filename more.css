@@ -45,7 +45,7 @@ border-radius: 10px;
 background-color: #fff8e6;
 }
 .section.dark { /*"dark" was spelled wrong and was not labelled as the entire identified class in the html file. The selector was missing the full class identification of "section dark", not "dork". This means that it was not being identified and applied to the specified text in the html.*/
-background-color: #e7cba9:
+background-color: #e7cba9;
 color: #3b2b0a;
 }
 .wool-box {
