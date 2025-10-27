@@ -36,16 +36,16 @@ margin-left: 250px;
 padding: 40px;
 background-color: #fdf9f4; /*A hashtag is needed to signify that the following context of letters and numbers is a type of hex color. If there is no #, the code cannot be found in the color gallery and applied*/
 }
-.section{
+#content {
 padding: 50px; /*the "px" was missing behind the numerical value. This means padding cannot be applied since the number cannot be identified with the declaration block.*/
-margin-bottom: 50px; /*css declaration line must end in ";" to state that a new, separate declaration code is going to be made. If no ";" is used, the rest of the css code would not be valide and will not have a impact on the website.*/
+margin-bottom: 50px; /*css decloration line must end in ";" to state that a new, separate decloration code is going to be made. If no ";" is used, the rest of the css code would not be valide and will not have a impact on the website.*/
 border-radius: 10px;
 }
-.section.light { /*the selector name in the html file was identified as "section light", not "light". This means the css could not find the text in the html and could not apply the changes correctly. There also cannot be spaces in classes so you have to use a period.*/
+.light { /*the selector name in the html file was identified as "section light", not "light". This means the css could not find the text in the html and could not apply the changes correctly. There also cannot be spaces in classes so you have to use a period.*/
 background-color: #fff8e6;
 }
-.section.dark { /*"dark" was spelled wrong and was not labelled as the entire identified class in the html file. The selector was missing the full class identification of "section dark", not "dork". This means that it was not being identified and applied to the specified text in the html.*/
-background-color: #e7cba9;
+.dark { /*"dark" was spelled wrong and was not labelled as the entire identified class in the html file. The selector was missing the full class identification of "section dark", not "dork". This means that it was not being identified and applied to the specified text in the html.*/
+background-color: #e7cba9:
 color: #3b2b0a;
 }
 .wool-box {
