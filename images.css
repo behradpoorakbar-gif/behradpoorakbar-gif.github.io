@@ -4,3 +4,9 @@ body {
   background-size: cover;
   background-align: center;
 }
+
+polariod {
+  width: 50%;
+  margin: auto;
+  color:skyblue;
+}
