@@ -8,8 +8,8 @@ body {
 .polaroid {
   width: 50%;
   margin: auto;
-  color: sky-blue;
-  box-shadow: 0 4px 8px 0 rgba(o, o, o, o.2);
+  color: dark-green;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 25px;
   border-radius: 5px;
 }
@@ -21,9 +21,9 @@ body {
   display: block;
 }
 
-container {
+.container {
   text-align:center;
   padding: 10px 20px;
   color: dark-green;
   text-size: 1.5rem;
-  
+}
