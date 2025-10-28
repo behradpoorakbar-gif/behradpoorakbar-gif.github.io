@@ -9,7 +9,7 @@ body {
 .polaroid {
   width: 50%;
   margin: auto;
-  color: #696969;
+  color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
@@ -24,6 +24,6 @@ body {
 .container {
   text-align:center;
   padding: 10px 20px;
-  color: #696969;
+  color: white;
   text-size: 1.5rem;
 }
