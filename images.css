@@ -5,12 +5,16 @@ body {
   background-align: center;
 }
 
-polariod {
+.polaroid {
   width: 50%;
   margin: auto;
   color: skyblue;
   box-shadow: 0 4px 8px 0 rgba(o, o, o, o.2);
   margin-bottom: 25px;
   border-radius: 5px;
-  
 }
+
+.polaroid img{
+  width: 95%;
+  margin: auto;
+  border-radius: 5px;
