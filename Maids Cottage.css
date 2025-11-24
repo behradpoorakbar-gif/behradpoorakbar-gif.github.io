@@ -286,6 +286,7 @@ h2 {
 
 #fancy-image {
   margin: 40px 10px 60px 10px; /*image is isolated at the bottom woth its own unique padding*/
+  text-align: center;
 }
 
 #fancy-image img{/* the "img" tag allows me to make adjusments to the actual images properties. I cannot add padding to the original image which is why it is in a separate block without the tag.*/
