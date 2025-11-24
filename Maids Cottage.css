@@ -1,0 +1,307 @@
+
+#the {
+  font-family: "Rouge Script", cursive; /*css font code*/
+  font-weight: 400;
+  font-style: normal;
+  font-size: 120px; /*"the' has a smaller font that the rest of the title since it is insignificant*/
+
+  color: #b82732;
+
+  position: absolute; /*since my title has mutliple letters, I dident want them to interfere with eachother so i made them all have absolute positioning*/
+  z-index: 3; /*each word has its own unique positioning on the webpage*/
+  left: 26%;
+  top:40%; /*I made the diffrent words merge into one another to give the title more of a unique and bolder look, especially with the red colorway*/
+}
+
+#tname1 {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200px;
+
+    color: #b82732;
+
+  position: absolute;
+  z-index: 2;
+  left: 35%;
+  top: 30%;
+}
+
+#tname2 {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200px;
+
+    color: #b82732;
+
+  position: absolute;
+  z-index: 2;
+  left: 24.8%;
+  top: 43%;
+}
+
+#titleimage img{ 
+  position: relative; /* the rest of the body would come after the title image cover so it is set to position relative for the rest of the text to be placed in the order of the html file*/
+width: 100%;
+height: auto; /* width is set to sepcific amount so height is set to auto so that I don't loose original size of the image, image height adjusts via original based on image width*/
+
+z-index: 1; /*background image that has lowest z-index since it is placed under the title text, nav, and rest of code*/
+top: 0px;
+}
+
+.nav {
+  z-index: 100;
+position: fixed; /* navigation is fixed at the top of the page*/
+display: flex;
+
+top: 0px; 
+left: 0px;/*navigation takes up the whole width of the page*/
+right: 0px;
+align-items: center; /* due to code order, the margins and spacing between the list elements overule the horizontal alignment, only centering the text vertically*/
+background-color: #efefef;
+
+box-shadow: 3px 0 40px; /*shadow placed at the bottem of the navigation*/
+}
+
+ul {
+   font-family: "Titan One", sans-serif; 
+  font-weight: 400;
+  font-style: normal;
+  color: #949494;
+
+  list-style-type: none; /*removes the bullit points that a unorganized list would typicallyhave*/
+
+background-color: #efefef; 
+display: flex; /*makes text next to one another*/
+padding: 0%;
+}
+
+li a {
+  display: block; /*makes the anchor tags act like block elements*/
+  padding: 24.5px 40px; /*button dimensions*/
+}
+
+
+.nimage {
+  width: 10%; /*logo dimensions*/
+  height: auto;
+  top: 0%;
+  margin-right: 20px;
+  position: relative; /*image os already centered. but still needs to be in a relavent spot and follow the nav html document order when "displayed; flex;"*/
+  z-index: 101; 
+}
+
+#order { /*unique styling to make the order butoon stand out*/
+   font-family: "Titan One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  color:#ffffff;
+  background-color:#b82732;
+  border-radius: 20px; /*makes edges of border round based on a perfect circle's radius in pixles*/
+}
+
+/*page 2 - "take Out"*/
+
+
+
+ .nav a {
+   text-decoration: none;
+  color: inherit;
+}
+
+.nav li a:hover { /* hover fuction makes the website interactive. I made it so that the navbar elements change color when your cursor hovers over it.*/
+  color: #b82732;
+  background-color: #dcdcdc;
+}
+
+#titleimage2 img{
+width: 100%;
+height: auto;
+margin: 0;
+padding: 0;
+
+position: relative;
+z-index: 1;
+top: 100px;
+}
+
+h1 { /*for this page I used heading to organizse my code since it was applicable*/
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200px;
+
+    color: #ffffff;
+
+  position: absolute;
+  z-index: 2;
+  left: 20%;
+  margin-top: 22.5%;
+}
+
+html, body { /*this block of code I copied and paste from chatgpt because I could not figure out how to get rid of the extra space to the left side of the title image, the code somehow fixed it*/
+  margin: 0;
+  overflow-x: hidden; 
+} 
+
+.heading {
+  position: relative; /* header is postion relative so that it follows the cover image relative to the html document*/
+  width: 100%;
+  padding: 5px 30px 60px 60px;
+  margin-top: 90px; /*used margin top so that it would not contradict any positionings*/
+
+  background-color: #e4c49c;
+}
+
+h2 {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color:#b82732;
+  font-size: 80px;
+
+}
+
+.subheading {
+    font-family: "Candal", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+
+  color: #ffffff;
+  display: flex; /*allows for the subheadings to be displayed next to eachother*/
+}
+
+
+#bakers-dozen {
+     font-family: "Candal", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  color: #ffffff;
+  
+  display: flex;
+  right: 100px;
+  position: absolute; /*I used position absolute to get by the padding used for the heading*/
+}
+
+.subheading-prices1{
+  margin-right: 40px; /*spacing out the subheadings*/
+}
+
+.subheading-prices2{
+  margin-right: 40px;
+}
+
+/*page 3 - "Heating Instructions"*/
+
+#hitext1 { /*since my title has mutliple letters, I dident want them to interfere with eachother so I made them all have absolute positioning*/
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200px;
+
+ color: #ffffff;
+
+   position: absolute;
+  z-index: 2;
+  left: 25%;
+  top: 30%;
+}
+
+#hitext2 {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200px;
+   position: absolute;
+
+  color: #ffffff;
+
+  z-index: 2;
+  left: 8%;
+  top: 50%;
+}
+
+#heating-text {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 15px;
+  z-index: 1;
+
+  position: relative;
+
+  margin: 40px 40px 40px 40px; /*creates an equal frame around the the border*/
+  margin-top: 138px;
+
+  border-style: solid;
+  border-color: black;
+  border-radius: 3px;
+  border-width: 3px;
+}
+
+.hibodytext1 {
+ font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px;
+
+
+  margin: 100px 10px 80px 10px; /*the first sentance is separate and needed larger margins which is why it is in a seperate div*/
+  padding: 0px 40px 0px 40px; /*I used a mix of paddings and margins to separate the left and right side borders of the text*/
+  text-align: center;
+
+}
+.hibodytext2 {
+ font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 30px;
+
+
+  margin: 60px 10px 60px 10px;
+  padding: 0px 40px 0px 40px;
+  text-align: center;
+
+}
+
+.hibodytext3 {
+  font-family: "Rouge Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 160px;
+
+
+  margin: 60px 10px 60px 10px;
+  padding: 0px 40px 0px 40px;
+  text-align: center;
+
+}
+
+#fancy-image {
+  margin: 40px 10px 60px 10px; /*image is isolated at the bottom woth its own unique padding*/
+}
+
+#fancy-image img{/* the "img" tag allows me to make adjusments to the actual images properties. I cannot add padding to the original image which is why it is in a separate block without the tag.*/
+width: 30%;
+height: auto;
+margin-bottom: 80px;
+}
+
+#line-divider {
+  position: relative; /*since the divider is positioned relative to the html document, I did not need to move it around or start it at the top. The divider was already placed were it was needed to be, allowing me to efficiently organize my code and easily add padding*/
+  height: 6px;
+  width: 60%;
+  margin: 40px auto;
+  margin-bottom: 80px;
+
+  background-color: black;
+  border-radius: 10px;
+  
+}
