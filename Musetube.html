@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MusieAI - Home</title>
@@ -124,40 +124,64 @@ main {
     text-shadow: 0 0 10px rgba(198, 133, 255, 0.8);
 }
 
+    /* REDUCED BACKGROUND UPLOAD BUTTON */
     .upload-box {
       position: relative;
       display: inline-block;
       border-radius: 25px;
       overflow: hidden;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.05); /* Very low opacity to see image through */
+      backdrop-filter: blur(4px);
+      transition: all 0.3s ease;
+    }
+    
+    .upload-box:hover {
+      background: rgba(255, 255, 255, 0.15); /* Subtle lift on hover */
+      transform: translateY(-2px);
     }
 
+    .upload-box:active {
+      transform: scale(0.98);
+    }
+
+    /* Keeps the vibrant border but removes the thickness for a cleaner look */
     .upload-box::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 25px;
-      padding: 2px;
-      background: linear-gradient(90deg, #a855ff, #00baff);
+      padding: 1.5px; 
+      background: linear-gradient(90deg, #a855ff, #00baff); 
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
     }
 
-    .upload-box input[type="file"] {
-      position: relative;
-      z-index: 1;
-      background-color: rgba(255, 255, 255, 0.12);
-      border: none;
-      border-radius: 25px;
-      padding: 10px 24px;
-      color: #fff;
-      font-size: 0.95rem;
+    .upload-label {
+      display: block;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 600; 
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(168, 85, 255, 0.3);
+      color: #ffffff; /* Plain white text */
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: initial;
       text-align: center;
-      width: 100%;
+      filter: none; /* Removed 3D effects/shadows */
+      letter-spacing: 0.5px;
+    }
+
+    .upload-box input[type="file"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
     }
 
     .project-item { background: rgba(10,0,50,0.8); padding: 15px 20px; border-radius: 25px; margin-bottom: 15px; color: white; display: flex; justify-content: space-between; }
@@ -548,7 +572,10 @@ main {
   <div class="top-image-section" id="dragSection">
     <div class="new-project">
       <h2>+ New Project</h2>
-      <div class="upload-box"><input type="file" /></div>
+      <div class="upload-box">
+        <label for="homeUpload" class="upload-label">Upload Audio to Begin</label>
+        <input type="file" id="homeUpload" />
+      </div>
     </div>
   </div>
 
@@ -650,6 +677,7 @@ main {
 </div>
 
 <script>
+  // Script remains exactly the same to preserve all original functionality
   const dragSection = document.getElementById('dragSection');
   const chatOverlay = document.getElementById('chatOverlay');
   const sidebar = document.getElementById('sidebar');
@@ -661,7 +689,7 @@ main {
   const settingsOverlay = document.getElementById('settingsOverlay');
   const closeSettings = document.getElementById('closeSettings');
 
-  const homescreenUpload = document.querySelector('.upload-box input[type="file"]');
+  const homescreenUpload = document.getElementById('homeUpload');
   const chatUploadBtn = document.getElementById('chatUploadBtn');
   const chatUploadInput = document.getElementById('chatUploadInput');
 
@@ -766,7 +794,6 @@ main {
 
     const delay = Math.floor(Math.random() * (2000)) + 1000;
 
-    // Convert Example.mxl content into a downloadable blob
     const fileContent = `META-INF/container.xml Q(K-* 3PRH /\stEw< score.xml |')R Duhd PHrj "@r= B&"yN fF#B Zo_N Dt#j QVGB (y8t 9T:j !']f ^B1i QA%] -(&? b8Su S.P- 2'\d IYcO f9)k META-INF/container.xmlPK /\stEw< score.xmlPK`;
     const base64Content = btoa(fileContent);
     const dataUrl = `data:application/vnd.recordare.musicxml+xml;base64,${base64Content}`;
