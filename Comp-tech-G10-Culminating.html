@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MusieAI - Home</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Poppins:wght@100&display=swap');
+
+  body {
+  margin: 0;
+  height: 100vh;
+  background-color: #0a001a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.daily-card-header .project-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+main {
+  width: 85%;
+  flex: 1;
+  overflow: hidden;
+  padding-bottom: 30px;
+  margin-top: 10px;
+  z-index: 1;
+}
+
+    .app {
+      width: 408px;
+      height: 844px;
+      background-image: url('https://i.postimg.cc/bNKWtkJM/edited-photo.png');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 40px rgba(128, 0, 255, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ---------------- HEADER ---------------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 380px;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, rgba(175, 0, 255, 0.45), rgba(0, 150, 255, 0.35), rgba(255, 0, 180, 0.4));
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 25px rgba(80, 0, 150, 0.3);
+      z-index: 100;
+      padding: 0 14px;
+      transition: background 0.4s ease;
+    }
+
+    .logo { display: flex; align-items: flex-end; gap: 2.5px; }
+    .logo img { height: 32px; margin-bottom: 2px; }
+    .logo-text { font-weight: 600; font-size: 1.3rem; color: #fff; text-shadow: 0 0 8px rgba(255, 200, 255, 0.6); }
+    .logo-text span { color: #c685ff; text-shadow: 0 0 10px rgba(198, 133, 255, 0.8); }
+    .logo-text sub { font-size: 0.6em; opacity: 0.7; margin-left: 3px; }
+
+    .profile { width: 38px; height: 38px; border-radius: 50%; overflow: hidden; cursor: pointer; }
+    .profile img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ---------------- HOMESCREEN ---------------- */
+    .top-image-section {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background-image: url('https://i.postimg.cc/prGJTWgW/wmremove-transformed-(1).png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 64px;
+      transition: transform 0.3s ease, opacity 0.4s ease;
+      z-index: 5;
+    }
+
+    .new-project { text-align: center; margin-top: 20px; }
+    .new-project h2 {
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar .logo-text-sidebar {
+       font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 200;
+    font-size: 1.3rem;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 200, 255, 0.6);
+    }
+
+.sidebar .logo-text-sidebar span {
+    color: #c685ff;
+    text-shadow: 0 0 10px rgba(198, 133, 255, 0.8);
+}
+
+    .upload-box {
+      position: relative;
+      display: inline-block;
+      border-radius: 25px;
+      overflow: hidden;
+    }
+
+    .upload-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 25px;
+      padding: 2px;
+      background: linear-gradient(90deg, #a855ff, #00baff);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .upload-box input[type="file"] {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.12);
+      border: none;
+      border-radius: 25px;
+      padding: 10px 24px;
+      color: #fff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(168, 85, 255, 0.3);
+      text-align: center;
+      width: 100%;
+    }
+
+    .project-item { background: rgba(10,0,50,0.8); padding: 15px 20px; border-radius: 25px; margin-bottom: 15px; color: white; display: flex; justify-content: space-between; }
+
+    /* ---------------- CHAT OVERLAY ---------------- */
+    .chat-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://i.postimg.cc/ZRYwCF6d/wmremove-transformed-(1).png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 90px;
+    }
+    
+    .chat-overlay.active { opacity: 1; pointer-events: auto; }
+
+    .daily-card {
+      position: relative;
+      width: 92%;
+      border-radius: 24px;
+      background: linear-gradient(120deg, #a164ff 0%, #d56eff 40%, #7e3aff 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+      margin-top: 20px;
+    }
+
+    .daily-card-header {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 100;
+      font-size: 1.1rem;
+      color: white;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+    }
+
+    /* ---------------- CHECKMARK & UNDERGLOW ---------------- */
+    .checkmark-right {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 28px;
+      height: 28px;
+      opacity: 0;
+      cursor: pointer;
+      transform: translateX(-40px); 
+      transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 5;
+    }
+
+    .checkmark-right.show-check {
+      opacity: 1;
+      transform: translateX(0);
+      filter: drop-shadow(0 0 8px #00baff) 
+              drop-shadow(0 0 15px #a855ff) 
+              drop-shadow(0 0 20px #ff00b4);
+      animation: glowPulse 2s infinite alternate;
+    }
+
+    .checkmark-right.fade-out-right {
+      opacity: 0;
+      transform: translateX(60px);
+      pointer-events: none;
+    }
+
+    @keyframes glowPulse {
+      from { filter: drop-shadow(0 0 5px #00baff) drop-shadow(0 0 10px #a855ff) drop-shadow(0 0 15px #ff00b4); }
+      to { filter: drop-shadow(0 0 12px #00baff) drop-shadow(0 0 20px #a855ff) drop-shadow(0 0 30px #ff00b4); }
+    }
+
+    /* ---------------- SCORE BUBBLE ---------------- */
+    .score-bubble {
+        width: 92%;
+        margin-top: 15px;
+        background: linear-gradient(90deg, #f0f7ff 0%, #e0f0ff 100%);
+        border-radius: 80px;
+        padding: 4px;
+        box-sizing: border-box;
+        position: relative;
+        animation: slideInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        z-index: 1;
+        background-image: linear-gradient(90deg, #ff00b4, #a855ff, #00baff);
+    }
+
+    .score-bubble-inner {
+        background: white;
+        border-radius: 76px;
+        padding: 10px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .score-bubble::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 35px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 12px solid #ff00b4;
+    }
+
+    .score-text-link {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1.3rem;
+        color: #4a90e2;
+        font-weight: 600;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .score-text-link:hover {
+        opacity: 0.8;
+    }
+
+    /* ---------------- PROCESSING TEXT ---------------- */
+    .processing-text {
+        margin-top: 15px;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-weight: 400;
+        color: #fff;
+        font-size: 1rem;
+        opacity: 0.9;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        filter: drop-shadow(0 0 8px #ff00b4) drop-shadow(0 0 12px #a855ff) drop-shadow(0 0 16px #00baff);
+        animation: processingGlow 1.5s infinite alternate ease-in-out, fadeIn 0.3s ease-out;
+    }
+
+    @keyframes processingGlow {
+        from { filter: drop-shadow(0 0 5px #ff00b4) drop-shadow(0 0 8px #a855ff) drop-shadow(0 0 12px #00baff); opacity: 0.7; }
+        to { filter: drop-shadow(0 0 12px #ff00b4) drop-shadow(0 0 20px #a855ff) drop-shadow(0 0 25px #00baff); opacity: 1; }
+    }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideInUp { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+    .selected-prompts-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+      min-height: 30px;
+      z-index: 2;
+    }
+
+    .active-chip {
+      background: rgba(255, 255, 255, 0.9);
+      color: #7e3aff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      animation: popIn 0.2s ease-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .active-chip .remove-x {
+      font-size: 1rem;
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    .audio-input-fake {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 100;
+      background: white;
+      color: #3b82f6;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 220px;
+      height: 46px;
+      display: block;
+      white-space: nowrap; 
+      overflow-x: auto; 
+      overflow-y: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      z-index: 2;
+      line-height: 26px;
+      box-sizing: border-box;
+    }
+
+    .audio-input-fake::-webkit-scrollbar { height: 4px; }
+    .audio-input-fake::-webkit-scrollbar-thumb { background-color: #3b82f6; border-radius: 2px; }
+    .audio-input-fake::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+
+    .prompts-dropdown {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding-bottom: 0;
+      z-index: 2;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.3s ease, 
+                  margin-top 0.4s ease,
+                  padding-bottom 0.4s ease;
+    }
+
+    .prompts-dropdown.show {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 15px;
+      padding-bottom: 8px;
+    }
+
+    .prompts-grid {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-auto-flow: column;
+      gap: 8px;
+    }
+
+    .prompt-chip {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .prompts-dropdown::-webkit-scrollbar { height: 4px; }
+    .prompts-dropdown::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.4); border-radius: 10px; }
+
+    .prompts-link {
+      margin-top: 15px;
+      align-self: flex-end;
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .prompts-link .prompt-icon { width: 18px; height: 18px; object-fit: contain; }
+
+    /* ---------------- SIDEBAR ---------------- */
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 71%;
+      height: 100%;
+      background-image: url('https://i.postimg.cc/8znYPJ3V/edited-photo-(1).png');
+      background-size: cover;
+      background-position: center;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(.25,1,.3,1);
+      z-index: 120;
+      padding: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-content { margin-top: 60px; display: flex; flex-direction: column; gap: 15px; }
+    .sidebar-content .logo { margin-bottom: 20px; }
+    .new-project-row { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+    .new-project-row img { width: 50px; height: auto; }
+    .projects-list span { display: block; margin-bottom: 14px; font-weight: 300; }
+    .settings { opacity: 0.8; font-size: 0.95rem; }
+
+    .sidebar-icon {
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      width: 26px;
+      height: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 110;
+      pointer-events: auto;
+    }
+    .sidebar-icon div { height: 3px; background: white; border-radius: 2px; }
+
+    /* ---------------- SETTINGS OVERLAY ---------------- */
+    .settings-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      z-index: 150;
+    }
+    .settings-overlay.active { opacity: 1; pointer-events: auto; }
+
+    .settings-panel {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 92%;
+      background: #2a2a2a;
+      border-top-left-radius: 28px;
+      border-top-right-radius: 28px;
+      transition: bottom 0.45s cubic-bezier(.25,1,.3,1);
+      padding: 18px;
+      box-sizing: border-box;
+    }
+
+    .settings-overlay.active .settings-panel { bottom: 0; }
+
+    .settings-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .settings-header h2 { font-size: 1.2rem; font-weight: 600; }
+    .close-settings { font-size: 1.4rem; cursor: pointer; }
+
+    .settings-group {
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+    .settings-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 6px;
+      color: #fff;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+    .settings-item + .settings-item { border-top: 1px solid rgba(255,255,255,0.08); }
+    .settings-item span:last-child { opacity: 0.6; }
+  </style>
+</head>
+
+<body>
+<div class="app">
+
+  <header id="navbar">
+    <div class="logo">
+      <img src="https://i.postimg.cc/8zhHS9LC/edited-photo-(2).png" alt="MusieAI Logo"/>
+      <div class="logo-text">USIE<span>AI</span><sub>BETA</sub></div>
+    </div>
+    <div class="profile" id="openSettings">
+      <img src="https://i.postimg.cc/pVYjX13B/Screenshot-2026-01-05-at-2-32-54-PM-removebg-preview.png" alt="Profile"/>
+    </div>
+  </header>
+
+  <div class="top-image-section" id="dragSection">
+    <div class="new-project">
+      <h2>+ New Project</h2>
+      <div class="upload-box"><input type="file" /></div>
+    </div>
+  </div>
+
+  <main id="mainContent">
+    <div class="project-item"><span>Czardas</span><span>3 min ago</span></div>
+    <div class="project-item"><span>Vivaldi – The Seasons mov. 3</span><span>2 hrs ago</span></div>
+    <div class="project-item"><span>Hot Cross Buns</span><span>5 min ago</span></div>
+  </main>
+
+  <div class="chat-overlay" id="chatOverlay">
+    <div class="sidebar-icon" id="sidebarToggle"><div></div><div></div><div></div></div>
+    
+    <div class="daily-card" id="dailyCard">
+      <img src="https://i.postimg.cc/LssmPVnx/edited-photo-(7).png" id="fileCheckmark" class="checkmark-right" alt="Success">
+
+      <div class="daily-card-header">
+        <img src="https://i.postimg.cc/5tK96Jrp/edited-photo-(6).png" alt="Project Icon" class="project-icon">
+        Todays Project
+      </div>
+
+      <div class="selected-prompts-container" id="selectedPromptsContainer"></div>
+
+      <div class="audio-input-fake" id="chatUploadBtn">Upload Audio</div>
+      <input type="file" id="chatUploadInput" style="display:none;">
+
+      <div class="prompts-dropdown" id="promptsDropdown">
+        <div class="prompts-grid">
+          <div class="prompt-chip">jazz</div>
+          <div class="prompt-chip">classical</div>
+          <div class="prompt-chip">blues</div>
+          <div class="prompt-chip">duet</div>
+          <div class="prompt-chip">solo</div>
+          <div class="prompt-chip">split</div>
+          <div class="prompt-chip">Trio</div>
+          <div class="prompt-chip">Quartet</div>
+          <div class="prompt-chip">choir</div>
+          <div class="prompt-chip">opera</div>
+        </div>
+      </div>
+      
+      <div class="prompts-link" id="promptsToggle">
+        <img src="https://i.postimg.cc/VvG8vWv7/edited-photo-(5).png" alt="Music Icon" class="prompt-icon">
+        Prompts
+      </div>
+    </div>
+
+    <div id="dynamicStatusContainer" style="width:100%; display:flex; flex-direction:column; align-items:center;"></div>
+
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-content">
+        <div class="logo">
+          <img src="https://i.postimg.cc/8zhHS9LC/edited-photo-(2).png" style="height:28px;">
+          <div class="logo-text-sidebar">USE<span>HUB</span></div>
+        </div>
+        <div class="new-project-row">
+          <img src="https://i.postimg.cc/cJyjSPCM/erasebg-transformed-(1).png" alt="Note Icon">
+          <span>New Project</span>
+        </div>
+        <div class="projects-list">
+          <span>Czardas</span>
+          <span>Vivaldi – The Seasons mov. 3</span>
+          <span>Hot Cross Buns</span>
+        </div>
+      </div>
+      <div class="settings">⚙️ Settings</div>
+    </div>
+  </div>
+
+  <div class="settings-overlay" id="settingsOverlay">
+    <div class="settings-panel">
+      <div class="settings-header">
+        <h2>Settings</h2>
+        <div class="close-settings" id="closeSettings">✕</div>
+      </div>
+      <div class="settings-group">
+        <div class="settings-item"><span>Email</span><span>••••@gpps.yrdsb.ca</span></div>
+        <div class="settings-item"><span>Subscription</span><span>Free</span></div>
+        <div class="settings-item"><span>Restore Purchase</span></div>
+        <div class="settings-item"><span>Notifications</span></div>
+        <div class="settings-item"><span>Data Control</span></div>
+        <div class="settings-item"><span>Security</span></div>
+      </div>
+      <div class="settings-group">
+        <div class="settings-item"><span>Main Language</span></div>
+        <div class="settings-item"><span>Appearance</span></div>
+        <div class="settings-item"><span>Haptics</span></div>
+        <div class="settings-item"><span>Autocomplete</span></div>
+        <div class="settings-item"><span>Score</span></div>
+      </div>
+      <div class="settings-group">
+        <div class="settings-item"><span>Report Bug</span></div>
+        <div class="settings-item"><span>Help Centre</span></div>
+        <div class="settings-item"><span>Terms of Use</span></div>
+        <div class="settings-item"><span>Privacy Policy</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const dragSection = document.getElementById('dragSection');
+  const chatOverlay = document.getElementById('chatOverlay');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const fileCheckmark = document.getElementById('fileCheckmark');
+  const dynamicStatusContainer = document.getElementById('dynamicStatusContainer');
+
+  const openSettings = document.getElementById('openSettings');
+  const settingsOverlay = document.getElementById('settingsOverlay');
+  const closeSettings = document.getElementById('closeSettings');
+
+  const homescreenUpload = document.querySelector('.upload-box input[type="file"]');
+  const chatUploadBtn = document.getElementById('chatUploadBtn');
+  const chatUploadInput = document.getElementById('chatUploadInput');
+
+  const promptsToggle = document.getElementById('promptsToggle');
+  const promptsDropdown = document.getElementById('promptsDropdown');
+  const selectedPromptsContainer = document.getElementById('selectedPromptsContainer');
+  const promptChips = document.querySelectorAll('.prompt-chip');
+
+  let activePrompts = [];
+  let isProcessing = false;
+
+  promptsToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    promptsDropdown.classList.toggle('show');
+  });
+
+  promptChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const text = chip.textContent;
+      if (activePrompts.includes(text)) return;
+      if (activePrompts.length >= 6) return;
+      activePrompts.push(text);
+      renderActivePrompts();
+    });
+  });
+
+  function renderActivePrompts() {
+    selectedPromptsContainer.innerHTML = '';
+    activePrompts.forEach(text => {
+      const chip = document.createElement('div');
+      chip.className = 'active-chip';
+      chip.innerHTML = `${text} <span class="remove-x">×</span>`;
+      chip.onclick = () => removePrompt(text);
+      selectedPromptsContainer.appendChild(chip);
+    });
+  }
+
+  function removePrompt(text) {
+    activePrompts = activePrompts.filter(p => p !== text);
+    renderActivePrompts();
+  }
+
+  let startY = 0;
+  let dragging = false;
+  let startX = 0, isDraggingSidebar = false;
+
+  function move(y) {
+    if (!dragging) return;
+    const dist = y - startY;
+    if (dist > 5) {
+      chatOverlay.classList.add('active');
+      dragSection.style.transform = 'translateY(100%)';
+    }
+  }
+  function end() { dragging = false; }
+
+  dragSection.addEventListener('mousedown', e => { startY = e.clientY; dragging = true; });
+  document.addEventListener('mousemove', e => move(e.clientY));
+  document.addEventListener('mouseup', end);
+  dragSection.addEventListener('touchstart', e => { startY = e.touches[0].clientY; dragging = true; });
+  dragSection.addEventListener('touchmove', e => move(e.touches[0].clientY));
+  dragSection.addEventListener('touchend', end);
+
+  sidebarToggle.addEventListener('click', e => { e.stopPropagation(); sidebar.classList.toggle('open'); });
+  chatOverlay.addEventListener('click', e => { if (!sidebar.contains(e.target) && e.target.id !== 'sidebarToggle') sidebar.classList.remove('open'); });
+
+  function startSidebarDrag(x) { if (!sidebar.classList.contains('open')) return; startX = x; isDraggingSidebar = true; }
+  function moveSidebar(x) { if (!isDraggingSidebar) return; if (x - startX < -50) { sidebar.classList.remove('open'); isDraggingSidebar = false; } }
+  function endSidebarDrag() { isDraggingSidebar = false; }
+
+  sidebar.addEventListener('mousedown', e => startSidebarDrag(e.clientX));
+  document.addEventListener('mousemove', e => moveSidebar(e.clientX));
+  document.addEventListener('mouseup', endSidebarDrag);
+  sidebar.addEventListener('touchstart', e => startSidebarDrag(e.touches[0].clientX));
+  sidebar.addEventListener('touchmove', e => moveSidebar(e.touches[0].clientX));
+  sidebar.addEventListener('touchend', endSidebarDrag);
+
+  openSettings.addEventListener('click', () => settingsOverlay.classList.add('active'));
+  closeSettings.addEventListener('click', () => settingsOverlay.classList.remove('active'));
+
+  function handleFileSelection(file) {
+    chatOverlay.classList.add('active');
+    dragSection.style.transform = 'translateY(100%)';
+    chatUploadBtn.textContent = file.name;
+    chatUploadBtn.scrollLeft = 0;
+    
+    fileCheckmark.classList.remove('fade-out-right'); 
+    fileCheckmark.classList.add('show-check');
+  }
+
+  fileCheckmark.addEventListener('click', () => {
+    if (isProcessing) return;
+    isProcessing = true;
+
+    fileCheckmark.classList.add('fade-out-right');
+
+    dynamicStatusContainer.innerHTML = `
+        <div class="processing-text" id="procText">
+            <span>Processing Audio...</span>
+        </div>
+    `;
+
+    const delay = Math.floor(Math.random() * (2000)) + 1000;
+
+    // Convert Example.mxl content into a downloadable blob
+    const fileContent = `META-INF/container.xml Q(K-* 3PRH /\stEw< score.xml |')R Duhd PHrj "@r= B&"yN fF#B Zo_N Dt#j QVGB (y8t 9T:j !']f ^B1i QA%] -(&? b8Su S.P- 2'\d IYcO f9)k META-INF/container.xmlPK /\stEw< score.xmlPK`;
+    const base64Content = btoa(fileContent);
+    const dataUrl = `data:application/vnd.recordare.musicxml+xml;base64,${base64Content}`;
+
+    setTimeout(() => {
+        dynamicStatusContainer.innerHTML = `
+            <div class="score-bubble">
+                <div class="score-bubble-inner">
+                    <a href="${dataUrl}" download="Example.mxl" class="score-text-link">
+                        <span style="font-size: 1.5rem;">📄</span>
+                        <span>Download Example.mxl</span>
+                    </a>
+                </div>
+            </div>
+        `;
+    }, delay);
+  });
+
+  homescreenUpload.addEventListener('change', e => { if (e.target.files.length > 0) handleFileSelection(e.target.files[0]); });
+  chatUploadBtn.addEventListener('click', () => chatUploadInput.click());
+  chatUploadInput.addEventListener('change', e => { if (e.target.files.length > 0) handleFileSelection(e.target.files[0]); });
+</script>
+</body>
+</html>
